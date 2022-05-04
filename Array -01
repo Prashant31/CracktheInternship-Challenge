@@ -1,0 +1,13 @@
+Find the Duplicate Number
+ int findDuplicate(vector<int>& nums) {
+        unordered_map<int,int> ourmap;
+        int ans=0;
+        for(int i=0;i<nums.size();i++){
+            if(ourmap.count(nums[i])>0){
+               ans=nums[i];
+            }
+            ourmap[nums[i]]=1;
+            
+        }
+        return ans;
+    }
