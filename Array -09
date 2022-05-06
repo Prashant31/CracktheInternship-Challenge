@@ -1,0 +1,14 @@
+Subarray Sums Divisible by K
+int subarraysDivByK(vector<int>& nums, int k) {
+       vector<int> v(k,0);
+        int sum=0;
+        for(int i:nums){
+            sum+=(i%k+k)%k;
+            v[sum%k]++;
+        }
+        int result=v[0];
+        for(int c:v){
+            result+=(c*(c-1))/2;
+        }
+        return result;
+    }
