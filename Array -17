@@ -1,6 +1,7 @@
  bool search(vector<vector<char>>& board,int i,int j,string &word,int idx,vector<vector<bool>>& visited){
      if(idx==word.length()-1) return true;
-        
+        //to get rid of visited vector
+        //board[i][j]-=65; and remove visited from everywhere;
         visited[i][j]=true;
         
         if(i>0 && !visited[i-1][j] && board[i-1][j]==word[idx+1] && search(board,i-1,j,word,idx+1,visited))
@@ -14,7 +15,9 @@
         
         if(j<board[0].size()-1 && !visited[i][j+1] && board[i][j+1]==word[idx+1] && search(board,i,j+1,word,idx+1,visited))
             return true;
-        
+            
+        //to get rid of visited vector
+        //board[i][j]+=65;
         visited[i][j]=false;
         return false;
     }
