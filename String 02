@@ -1,0 +1,35 @@
+Valid Palindrome II
+class Solution {
+public:
+ 
+    bool checkPal(int l, int r, string s){
+    while (l <= r){
+        if (s[l] == s[r]){
+            l++;
+            r--;
+        }
+        else {
+            return false;
+        }
+    }
+    if (l >= r) return true;
+    return false;
+}
+
+bool validPalindrome(string s) {
+    int l = 0, r = s.size()-1;
+    while (l <= r){
+        if (s[l] == s[r]){
+            l++;
+            r--;
+        }
+        else {
+            return checkPal(l+1, r, s) or checkPal(l, r-1, s);
+        }
+    }
+    if (l >= r) return true;
+    return false;
+}
+        
+ 
+};
