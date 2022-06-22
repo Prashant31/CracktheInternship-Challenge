@@ -1,0 +1,15 @@
+//Implement strStr()
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if(needle.length()>haystack.length()){
+            return -1;
+        }
+        
+        int answer=haystack.find(needle);
+    if(answer!=string::npos){
+        return answer;
+    }
+        return -1;
+    }
+};
